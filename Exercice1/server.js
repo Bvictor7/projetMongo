@@ -5,6 +5,7 @@ const register = require('../Exercice3/userController');
 const getAllUsers = require('../Exercice4/getAllUsers');
 const updateUsers = require('../Exercice5/updateUsers');
 const removeUsers = require('../Exercice6/removeUsers');
+const login = require("../Exercice7/auth")
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -43,5 +44,7 @@ app.put('/users/:id', (req, res) => {
 });
 
 app.delete('/users/:id', removeUsers);
+
+app.post("/users/login", login)
 
 app.listen(PORT, () => console.log(`Serveur lancé sur http://localhost:${PORT}`)); 
